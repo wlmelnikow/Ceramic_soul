@@ -5,6 +5,23 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+const burger = document.querySelector(".burger"),
+    close = document.querySelector(".header__menu-close"),
+    menu = document.querySelector(".header__menu");
+
+burger.addEventListener("click", () => {
+    menu.classList.add("header__menu_active");
+    // Disable scrolling when the menu is open
+    document.body.style.overflow = "hidden"; 
+});
+
+close.addEventListener("click", () => {
+    menu.classList.remove("header__menu_active");
+    // Re-enable scrolling when the menu is closed
+    document.body.style.overflow = "";
+});
+
+
 try {
     new Swiper('.works__slider', {
         slidesPerView: 1,
@@ -34,7 +51,7 @@ try {
         modules: [Navigation, Pagination],
     });
 
-} catch (e) {}
+} catch (e) { }
 
 
 // Styles
